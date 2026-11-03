@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiframe"
+version = "0.1.0"
+description = "세모세모 — 날씨 기반 AI 풍경 E-Paper 액자 (Raspberry Pi 4B)"
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.scripts]
+aiframe = "aiframe.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

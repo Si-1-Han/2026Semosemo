@@ -1,0 +1,5 @@
+# 라즈베리파이 전용 (하드웨어 제어)
+-r requirements.txt
+spidev>=3.6
+gpiozero>=2.0
+lgpio>=0.2; platform_machine == "aarch64"

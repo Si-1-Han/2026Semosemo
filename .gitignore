@@ -1,0 +1,22 @@
+# 비밀 정보
+.env
+config/config.yaml
+
+# 실행 결과
+output/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+build/
+dist/
+
+# 편집기 / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

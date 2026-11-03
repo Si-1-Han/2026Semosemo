@@ -1,0 +1,41 @@
+# 이 파일을 config/config.yaml 로 복사해서 수정하세요.
+#   cp config/config.example.yaml config/config.yaml
+# API 키는 여기 말고 .env 에 넣습니다.
+
+location:
+  city: Seoul        # OpenWeatherMap 도시 이름 (영문)
+  country: KR
+  lat: null          # 좌표를 쓰려면 lat/lon을 채우세요 (도시 이름보다 우선)
+  lon: null
+  label: 서울         # 액자 하단에 표시할 이름
+
+weather:
+  provider: openweathermap   # openweathermap | mock
+
+image_gen:
+  provider: openai           # openai | mock
+  model: gpt-image-1
+  size: 1536x1024            # 가로형. 400x300으로 중앙 크롭됨
+  quality: low               # low | medium | high (비용 차이 큼)
+
+imaging:
+  dither: floyd-steinberg    # floyd-steinberg | atkinson | threshold
+  contrast: 1.3
+  overlay: true
+  font_path: /usr/share/fonts/truetype/nanum/NanumGothicBold.ttf
+
+display:
+  driver: epd42              # epd42 (실제 E-Paper) | mock (PNG 저장)
+  width: 400
+  height: 300
+  rotate: 0
+  spi_bus: 0
+  spi_device: 0
+  spi_speed_hz: 4000000
+  spi_mode: 3
+  pin_rst: 17                # BCM 번호
+  pin_dc: 25
+  pin_busy: 24
+
+interval_minutes: 60
+output_dir: output
