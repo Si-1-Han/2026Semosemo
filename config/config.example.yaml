@@ -3,14 +3,16 @@
 # API 키는 여기 말고 .env 에 넣습니다.
 
 location:
-  city: Seoul        # OpenWeatherMap 도시 이름 (영문)
+  city: Suwon        # 표시용 지역 정보 (기상청 조회는 관측소 번호 사용)
   country: KR
   lat: null          # 좌표를 쓰려면 lat/lon을 채우세요 (도시 이름보다 우선)
   lon: null
-  label: 서울         # 액자 하단에 표시할 이름
+  label: 수원         # 액자 하단에 표시할 이름
 
 weather:
-  provider: openweathermap   # openweathermap | mock
+  provider: kma              # kma(기상청 ASOS 시간자료) | mock
+  station_id: 119            # 수원 ASOS (군포 인접; 군포 438은 AWS)
+  # 인증키는 프로젝트 루트의 .env에 KMA_API_KEY로 설정합니다.
 
 image_gen:
   provider: openai           # openai | mock

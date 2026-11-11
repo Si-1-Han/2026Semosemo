@@ -8,7 +8,7 @@
 
 ```
 config.yaml ─► 날씨 API ─► 프롬프트 생성 ─► 이미지 생성 API ─► 영상처리(디더링) ─► SPI ─► E-Paper
- (지역)       (OpenWeather)  (날씨+시간+랜덤풍경)   (OpenAI)        (400x300 1bit)          (SSD1683)
+ (관측소)     (기상청 ASOS)  (날씨+시간+랜덤풍경)   (OpenAI)        (400x300 1bit)          (SSD1683)
 ```
 
 ## 팀 구성

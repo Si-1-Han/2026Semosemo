@@ -1,7 +1,7 @@
 import random
 
 from aiframe.prompt import LANDSCAPES, build_prompt
-from aiframe.weather import WeatherInfo, condition_from_owm_id
+from aiframe.weather import WeatherInfo, condition_from_kma_code
 
 
 def _w(cond="rain", tod="night"):
@@ -16,10 +16,11 @@ def test_prompt_contains_weather_time_and_style():
     assert "pen and ink" in prompt
 
 
-def test_owm_id_mapping():
-    assert condition_from_owm_id(211) == "thunderstorm"
-    assert condition_from_owm_id(501) == "rain"
-    assert condition_from_owm_id(601) == "snow"
-    assert condition_from_owm_id(741) == "fog"
-    assert condition_from_owm_id(800) == "clear"
-    assert condition_from_owm_id(803) == "clouds"
+def test_kma_weather_code_mapping():
+    assert condition_from_kma_code(45) == "fog"
+    assert condition_from_kma_code(55) == "drizzle"
+    assert condition_from_kma_code(65) == "rain"
+    assert condition_from_kma_code(75) == "snow"
+    assert condition_from_kma_code(95) == "thunderstorm"
+    assert condition_from_kma_code(-9, cloud_amount=1) == "clear"
+    assert condition_from_kma_code(-9, cloud_amount=8) == "clouds"

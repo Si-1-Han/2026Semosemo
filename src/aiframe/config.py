@@ -21,16 +21,17 @@ EXAMPLE_CONFIG_PATH = PROJECT_ROOT / "config" / "config.example.yaml"
 
 @dataclass
 class LocationConfig:
-    city: str = "Seoul"
+    city: str = "Suwon"
     country: str = "KR"
     lat: float | None = None
     lon: float | None = None
-    label: str = "서울"  # 화면에 표시할 지역 이름
+    label: str = "수원"  # 화면에 표시할 지역 이름
 
 
 @dataclass
 class WeatherConfig:
-    provider: str = "openweathermap"  # openweathermap | mock
+    provider: str = "kma"  # kma | mock
+    station_id: int = 119  # 수원 ASOS: 군포에 가까운 ASOS 관측소
     api_key: str = ""
 
 
@@ -102,6 +103,6 @@ def load_config(path: str | Path | None = None) -> Config:
     cfg.output_dir = raw.get("output_dir", cfg.output_dir)
 
     # API 키는 YAML이 아니라 .env에서만 읽는다 (깃에 올라가지 않도록)
-    cfg.weather.api_key = os.getenv("OPENWEATHER_API_KEY", "")
+    cfg.weather.api_key = os.getenv("KMA_API_KEY", "")
     cfg.image_gen.api_key = os.getenv("OPENAI_API_KEY", "")
     return cfg
